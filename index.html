@@ -1,485 +1,367 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="description"
-        content="MagicWorld: Towards Long-Horizon Stability for Interactive Video World Exploration.">
-  <meta name="keywords" content="Video World Model, Diffusion Transformer">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MagicWorld: Towards Long-Horizon Stability for Interactive Video World Exploration</title>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Page Template</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --primary: #111827;
+      --accent: #2563eb;
+      --card: #f8fafc;
+      --maxw: 1100px;
+      --radius: 16px;
     }
 
-    gtag('js', new Date());
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
 
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+    .container {
+      width: min(var(--maxw), calc(100% - 32px));
+      margin: 0 auto;
+    }
 
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/tryon/tryon_icon_2.png">
+    .hero {
+      padding: 56px 0 28px;
+      text-align: center;
+    }
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+    .eyebrow {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 10px;
+      letter-spacing: 0.3px;
+    }
+
+    h1 {
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.15;
+      margin: 0 0 18px;
+      color: var(--primary);
+    }
+
+    .authors {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .affiliations {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 22px;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--primary);
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: #cbd5e1;
+      text-decoration: none;
+    }
+
+    .btn.primary {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .intro {
+      max-width: 860px;
+      margin: 0 auto;
+      color: #374151;
+      font-size: 17px;
+    }
+
+    section {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    h2 {
+      font-size: 30px;
+      margin: 0 0 16px;
+      color: var(--primary);
+    }
+
+    .section-desc {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .video-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+    }
+
+    .video-card video,
+    .video-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #000;
+    }
+
+    .video-card .caption {
+      padding: 12px 14px 16px;
+      font-size: 14px;
+      color: #374151;
+    }
+
+    .method-figure {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      text-align: center;
+    }
+
+    .method-figure img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    .abstract-box {
+      background: #fafafa;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      font-size: 16px;
+    }
+
+    footer {
+      padding: 32px 0 60px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        padding-top: 40px;
+      }
+      .authors {
+        font-size: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-
-
-
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <!-- <h1 class="title is-1 publication-title" style="display: flex; align-items: baseline;">
-            <img src="./static/images/tryon/tryon_icon_2.png" alt="MagicTryOn Icon" style="width: 2em; height: 2em; vertical-align: baseline; margin-right: -1.9em;">
-            MagicTryOn: Harnessing Diffusion Transformer for Garment-Preserving Video Virtual Try-on
-          </h1> -->
-          <!-- <h1 class="title is-1 publication-title">MagicWorld: Interactive Geometry-driven Video World Exploration</h1> -->
-
-          <h1 class="title is-1 publication-title gradient-text">
-            MagicWorld: Towards Long-Horizon Stability for Interactive Video World Exploration
-          </h1>
-          
-          <style>
-          .gradient-text {
-            background: linear-gradient(90deg, #4A90E2, #9B59B6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-          
-            /* 进一步提升效果（可选） */
-            font-weight: 800;
-          }
-          </style>
-          
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://scholar.google.com.hk/citations?user=-AHPok4AAAAJ&hl=zh-CN">Guangyuan Li</a><sup>1,2</sup>,</span>
-            <!-- <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=zfYLLggAAAAJ&hl=zh-CN">Siming Zheng</a><sup>2</sup>,</span>
-            <span class="author-block">
-              <a href="https://github.com/Xushuolin">Shuolin Xu</a><sup>2</sup>,
-            </span> -->
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=NVzQ87sAAAAJ&hl=zh-CN">Bo Li</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=Pcsml4oAAAAJ&hl=zh-CN">Jinwei Chen</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=3lMuodUAAAAJ&hl=en">Xiaobin Hu</a><sup>3</sup>
-            </span>
-            <span class="author-block">
-              <a href="https://scholar.google.com.hk/citations?hl=zh-CN&user=KKBFG6kAAAAJ">Lei Zhao</a><sup>1*</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://scholar.google.com.hk/citations?hl=zh-CN&user=85QJ_i4AAAAJ">Peng-Tao Jiang</a><sup>2*</sup>
-            </span>
-          </div>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>College of Computer Science and Technology, Zhejiang University</span><br>
-            <span class="author-block"><sup>2</sup>vivo Mobile Communication Co., Ltd</span><br>
-            <span class="author-block"><sup>3</sup>National University of Singapore</span><br>
-            <span class="author-block"><sup>* Corresponding authors</sup></span>
-          </div>
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2511.18886"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2511.18886"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Video Link. -->
-              <!-- <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span> -->
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/vivoCameraResearch/Magic-World"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span>
-              <!-- Dataset Link. -->
-              <!-- <span class="link-block">
-                <a href="https://github.com/google/nerfies/releases/tag/0.1"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a> -->
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- <section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
-      </h2>
-    </div>
-  </div>
-</section> -->
-
-<section class="hero is-light is-small">
-  <div class="hero-body">
+  <header class="hero">
     <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static\videos\wm_2\ours_1.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static\videos\wm_2\ours_2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static\videos\wm_2\ours_3.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
+      <div class="eyebrow">Project Page / Conference 2026</div>
+      <h1>Let Them Talk: Audio-Driven Multi-Person Conversational Video Generation</h1>
 
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static\videos\wm_2\ours_4.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static\videos\wm_2\ours_5.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static\videos\wm_2\ours_6.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static\videos\wm_2\ours_7.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static\videos\wm_2\ours_8.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static\videos\wm_2\ours_9.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static\videos\wm_2\ours_10.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static\videos\wm_2\ours_11.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
+      <div class="authors">
+        <a href="#">Author A</a>, 
+        <a href="#">Author B</a>, 
+        <a href="#">Author C</a>, 
+        <a href="#">Author D</a>
       </div>
-    </div>
-  </div>
-</section>
 
-
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-
-        
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static\videos\wm\0002.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static\videos\wm\0003.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static\videos\wm\0004.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static\videos\wm\0005.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static\videos\wm\0007.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static\videos\wm\0008.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static\videos\wm\0010.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static\videos\wm\0011.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-
-
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static\videos\wm\0013.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
+      <div class="affiliations">
+        University / Company / Lab Name<br>
+        <span>*Equal Contribution &nbsp;&nbsp; ✉ Corresponding Author</span>
       </div>
+
+      <div class="button-row">
+        <a class="btn primary" href="#">Paper</a>
+        <a class="btn" href="#">Code</a>
+        <a class="btn" href="#">arXiv</a>
+        <a class="btn" href="#">Model</a>
+      </div>
+
+      <p class="intro">
+        We propose a framework for audio-driven multi-person conversational video generation.
+        Given multi-stream audio, a reference image, and a prompt, the model generates videos
+        with natural interaction and synchronized lip motion.
+      </p>
     </div>
-  </div>
-</section>
+  </header>
 
+  <main class="container">
+    <section>
+      <h2>Introducing the Project</h2>
+      <p class="section-desc">
+        Replace this paragraph with your project overview. This section is suitable for a short,
+        high-level explanation of the task, motivation, and contributions.
+      </p>
+    </section>
 
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Recent interactive video world model methods generate scene evolution conditioned on user instructions. Although they achieve impressive results, two key limitations remain. First, they exhibit motion drift in complex environments with multiple interacting subjects, where dynamic subjects fail to follow realistic motion patterns during scene evolution. Second, they suffer from error accumulation in long-horizon interactions, where autoregressive generation gradually drifts from earlier scene states and causes structural and semantic inconsistencies. In this paper, we propose MagicWorld, an interactive video world model built upon an autoregressive framework. To address motion drift, we incorporate a flow-guided motion preservation constraint that mitigates motion degradation in dynamic subjects, encouraging realistic motion patterns and stable interactions during scene evolution. To mitigate error accumulation in long-horizon interactions, we design two complementary strategies, including a history cache retrieval strategy and an enhanced interactive training strategy. The former reinforces historical scene states by retrieving past generations during interaction, while the latter adopts multi-shot aggregated distillation with dual-reward weighting for interactive training, enhancing long-term stability and reducing error accumulation. In addition, we construct RealWM120K, a real-world dataset with diverse city-walk videos and multimodal annotations to support dynamic perception and long-horizon world modeling. Experimental results demonstrate that MagicWorld improves motion realism and alleviates error accumulation during long-horizon interactions. 
-          </p>
+    <section>
+      <h2>Generate Cartoon Videos</h2>
+      <div class="video-grid">
+        <div class="video-card">
+          <video controls poster="">
+            <source src="assets/cartoon_1.mp4" type="video/mp4">
+          </video>
+          <div class="caption">Example 1 description.</div>
+        </div>
+        <div class="video-card">
+          <video controls>
+            <source src="assets/cartoon_2.mp4" type="video/mp4">
+          </video>
+          <div class="caption">Example 2 description.</div>
+        </div>
+        <div class="video-card">
+          <video controls>
+            <source src="assets/cartoon_3.mp4" type="video/mp4">
+          </video>
+          <div class="caption">Example 3 description.</div>
         </div>
       </div>
-    </div>
-    <!--/ Abstract. -->
+    </section>
 
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Method</h2>
-    
-        <!-- 图片指令 -->
-        <img src="./static/images/wm/new_model.png" alt="Description of image" style="max-width: 100%; height: auto;">
-    
-        <!-- p标签指令 -->
-        <div class="content has-text-justified">
-        <p>
-          Overview of MagicWorld. (a) Single interaction pipeline with history cache retrieval. (b) Flow-guided motion preservation enforces temporal coherence in dynamic
-          regions. (c) Enhanced interactive training with multi-shot aggregated reward distribution matching distillation, jointly optimizing multi-step rollouts with visual and motion
-          rewards to improve motion realism and mitigate error accumulation.
+    <section>
+      <h2>Generate Singing Videos</h2>
+      <div class="video-grid">
+        <div class="video-card">
+          <video controls>
+            <source src="assets/singing_1.mp4" type="video/mp4">
+          </video>
+          <div class="caption">Singing sample 1.</div>
+        </div>
+        <div class="video-card">
+          <video controls>
+            <source src="assets/singing_2.mp4" type="video/mp4">
+          </video>
+          <div class="caption">Singing sample 2.</div>
+        </div>
+        <div class="video-card">
+          <video controls>
+            <source src="assets/singing_3.mp4" type="video/mp4">
+          </video>
+          <div class="caption">Singing sample 3.</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Generate Instruction-Following Videos</h2>
+      <div class="video-grid">
+        <div class="video-card">
+          <video controls>
+            <source src="assets/instruction_1.mp4" type="video/mp4">
+          </video>
+          <div class="caption">Prompt-controlled example 1.</div>
+        </div>
+        <div class="video-card">
+          <video controls>
+            <source src="assets/instruction_2.mp4" type="video/mp4">
+          </video>
+          <div class="caption">Prompt-controlled example 2.</div>
+        </div>
+        <div class="video-card">
+          <video controls>
+            <source src="assets/instruction_3.mp4" type="video/mp4">
+          </video>
+          <div class="caption">Prompt-controlled example 3.</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>More Creative Videos</h2>
+      <div class="video-grid">
+        <div class="video-card">
+          <video controls>
+            <source src="assets/creative_1.mp4" type="video/mp4">
+          </video>
+          <div class="caption">Creative sample 1.</div>
+        </div>
+        <div class="video-card">
+          <video controls>
+            <source src="assets/creative_2.mp4" type="video/mp4">
+          </video>
+          <div class="caption">Creative sample 2.</div>
+        </div>
+        <div class="video-card">
+          <video controls>
+            <source src="assets/creative_3.mp4" type="video/mp4">
+          </video>
+          <div class="caption">Creative sample 3.</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Abstract</h2>
+      <div class="abstract-box">
+        Audio-driven human animation methods have shown strong performance in synchronized facial
+        motion generation. However, most prior works focus on single-person settings and struggle
+        with multi-stream audio and instruction following. We introduce a new task and a framework
+        that addresses multi-person conversational video generation with better person-audio binding
+        and controllability.
+      </div>
+    </section>
+
+    <section>
+      <h2>Method</h2>
+      <div class="method-figure">
+        <img src="assets/method.png" alt="Method Figure">
+        <p style="margin: 14px 0 0; color: #6b7280;">
+          Put your method overview figure here.
         </p>
       </div>
-    
-      </div>
-    </div>
-    <!--/ Paper video. -->
-  </div>
-</section>
+    </section>
+  </main>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <div style="text-align: center;">
-      <h2 class="title is-3">Experiments</h2>
-      <br>
-  </div>
-    
-    <div class="columns is-centered">
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static\videos\wm_3\Video_Comparison.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-
-    <!--/ Matting. -->
-    <div class="content has-text-justified">
-      <p>
-        Qualitative comparison of different methods on the same scene image under long-term interactions. Our method maintains stable scene geometry and natural motion dynamics while significantly reducing error accumulation, leading to more consistent generation during long-horizon interactions.
-      </p>
-    </div>
-
-    <div class="columns is-centered">
-      <div class="column">
-        <div class="columns is-centered">
-          <div class="column content">
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static\videos\wm_3\Video_Comparison_Viewpoint_consistency.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--/ Matting. -->
-    <div class="content has-text-justified">
-      <p>
-        Visual comparison of viewpoint consistency. Our method maintains consistent scene appearance across viewpoint changes, ensuring the scene remains consistent when revisiting the same viewpoint after multiple transitions. 
-      </p>
-    </div>
-    <!--/ Matting. -->
-    <!-- <div class="content has-text-justified">
-      <p>
-        Try-on results in large motion scenarios. 
-        Virtual try-on with large body movements—such as dancing—is particularly challenging, as it requires not only garment consistency but also spatiotemporal coherence. 
-        To evaluate performance in such cases, we select two dancing videos from Pexels website.
-      </p>
-    </div> -->
-
-    
-
-
-<!-- <section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <!-- <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
-}</code></pre> 
-  </div>
-</section> -->
-
-
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/GuangYuanKK" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/vivoCameraResearch/magictryon">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
+  <footer>
+    Some materials and videos may be derived from real videos. Generated content is for academic use only.
+  </footer>
 
 </body>
 </html>
