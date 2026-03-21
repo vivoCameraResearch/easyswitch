@@ -3,365 +3,206 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Page Template</title>
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --line: #e5e7eb;
-      --primary: #111827;
-      --accent: #2563eb;
-      --card: #f8fafc;
-      --maxw: 1100px;
-      --radius: 16px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    a:hover { text-decoration: underline; }
-
-    .container {
-      width: min(var(--maxw), calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .hero {
-      padding: 56px 0 28px;
-      text-align: center;
-    }
-
-    .eyebrow {
-      font-size: 15px;
-      color: var(--muted);
-      margin-bottom: 10px;
-      letter-spacing: 0.3px;
-    }
-
-    h1 {
-      font-size: clamp(30px, 4vw, 48px);
-      line-height: 1.15;
-      margin: 0 0 18px;
-      color: var(--primary);
-    }
-
-    .authors {
-      font-size: 18px;
-      margin-bottom: 12px;
-    }
-
-    .affiliations {
-      color: var(--muted);
-      font-size: 15px;
-      margin-bottom: 22px;
-    }
-
-    .button-row {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 18px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: white;
-      color: var(--primary);
-      font-weight: 600;
-      transition: all 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      border-color: #cbd5e1;
-      text-decoration: none;
-    }
-
-    .btn.primary {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-    }
-
-    .intro {
-      max-width: 860px;
-      margin: 0 auto;
-      color: #374151;
-      font-size: 17px;
-    }
-
-    section {
-      padding: 28px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    h2 {
-      font-size: 30px;
-      margin: 0 0 16px;
-      color: var(--primary);
-    }
-
-    .section-desc {
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .video-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.04);
-    }
-
-    .video-card video,
-    .video-card img {
-      display: block;
-      width: 100%;
-      height: auto;
-      background: #000;
-    }
-
-    .video-card .caption {
-      padding: 12px 14px 16px;
-      font-size: 14px;
-      color: #374151;
-    }
-
-    .method-figure {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 18px;
-      text-align: center;
-    }
-
-    .method-figure img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 12px;
-    }
-
-    .abstract-box {
-      background: #fafafa;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 22px;
-      font-size: 16px;
-    }
-
-    footer {
-      padding: 32px 0 60px;
-      color: var(--muted);
-      font-size: 14px;
-      text-align: center;
-    }
-
-    @media (max-width: 900px) {
-      .video-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 640px) {
-      .video-grid {
-        grid-template-columns: 1fr;
-      }
-      .hero {
-        padding-top: 40px;
-      }
-      .authors {
-        font-size: 16px;
-      }
-    }
-  </style>
+  <meta name="description" content="Project page template recreated in the style of MultiTalk for GitHub Pages." />
+  <title>MultiTalk Style Project Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <main>
+    <section class="hero section-tight">
+      <div class="container hero-inner">
+        <p class="eyebrow">MeiGen-MultiTalk</p>
+        <h1>Let Them Talk: Audio-Driven Multi-Person Conversational Video Generation</h1>
 
-  <header class="hero">
-    <div class="container">
-      <div class="eyebrow">Project Page / Conference 2026</div>
-      <h1>Let Them Talk: Audio-Driven Multi-Person Conversational Video Generation</h1>
+        <div class="authors">
+          <span><a href="#">Zhe Kong</a><sup>1,2,3*</sup>,</span>
+          <span><a href="#">Feng Gao</a><sup>2*</sup>,</span>
+          <span><a href="#">Yong Zhang</a><sup>2</sup>,</span>
+          <span><a href="#">Zhuoliang Kang</a><sup>2</sup>,</span>
+          <span><a href="#">Xiaoming Wei</a><sup>2</sup>,</span>
+          <span><a href="#">Xunliang Cai</a><sup>2</sup>,</span>
+          <span><a href="#">Guanying Chen</a><sup>1</sup>,</span>
+          <span><a href="#">Wenhan Luo</a><sup>3</sup></span>
+        </div>
 
-      <div class="authors">
-        <a href="#">Author A</a>, 
-        <a href="#">Author B</a>, 
-        <a href="#">Author C</a>, 
-        <a href="#">Author D</a>
-      </div>
-
-      <div class="affiliations">
-        University / Company / Lab Name<br>
-        <span>*Equal Contribution &nbsp;&nbsp; ✉ Corresponding Author</span>
-      </div>
-
-      <div class="button-row">
-        <a class="btn primary" href="#">Paper</a>
-        <a class="btn" href="#">Code</a>
-        <a class="btn" href="#">arXiv</a>
-        <a class="btn" href="#">Model</a>
-      </div>
-
-      <p class="intro">
-        We propose a framework for audio-driven multi-person conversational video generation.
-        Given multi-stream audio, a reference image, and a prompt, the model generates videos
-        with natural interaction and synchronized lip motion.
-      </p>
-    </div>
-  </header>
-
-  <main class="container">
-    <section>
-      <h2>Introducing the Project</h2>
-      <p class="section-desc">
-        Replace this paragraph with your project overview. This section is suitable for a short,
-        high-level explanation of the task, motivation, and contributions.
-      </p>
-    </section>
-
-    <section>
-      <h2>Generate Cartoon Videos</h2>
-      <div class="video-grid">
-        <div class="video-card">
-          <video controls poster="">
-            <source src="assets/cartoon_1.mp4" type="video/mp4">
-          </video>
-          <div class="caption">Example 1 description.</div>
-        </div>
-        <div class="video-card">
-          <video controls>
-            <source src="assets/cartoon_2.mp4" type="video/mp4">
-          </video>
-          <div class="caption">Example 2 description.</div>
-        </div>
-        <div class="video-card">
-          <video controls>
-            <source src="assets/cartoon_3.mp4" type="video/mp4">
-          </video>
-          <div class="caption">Example 3 description.</div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Generate Singing Videos</h2>
-      <div class="video-grid">
-        <div class="video-card">
-          <video controls>
-            <source src="assets/singing_1.mp4" type="video/mp4">
-          </video>
-          <div class="caption">Singing sample 1.</div>
-        </div>
-        <div class="video-card">
-          <video controls>
-            <source src="assets/singing_2.mp4" type="video/mp4">
-          </video>
-          <div class="caption">Singing sample 2.</div>
-        </div>
-        <div class="video-card">
-          <video controls>
-            <source src="assets/singing_3.mp4" type="video/mp4">
-          </video>
-          <div class="caption">Singing sample 3.</div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Generate Instruction-Following Videos</h2>
-      <div class="video-grid">
-        <div class="video-card">
-          <video controls>
-            <source src="assets/instruction_1.mp4" type="video/mp4">
-          </video>
-          <div class="caption">Prompt-controlled example 1.</div>
-        </div>
-        <div class="video-card">
-          <video controls>
-            <source src="assets/instruction_2.mp4" type="video/mp4">
-          </video>
-          <div class="caption">Prompt-controlled example 2.</div>
-        </div>
-        <div class="video-card">
-          <video controls>
-            <source src="assets/instruction_3.mp4" type="video/mp4">
-          </video>
-          <div class="caption">Prompt-controlled example 3.</div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>More Creative Videos</h2>
-      <div class="video-grid">
-        <div class="video-card">
-          <video controls>
-            <source src="assets/creative_1.mp4" type="video/mp4">
-          </video>
-          <div class="caption">Creative sample 1.</div>
-        </div>
-        <div class="video-card">
-          <video controls>
-            <source src="assets/creative_2.mp4" type="video/mp4">
-          </video>
-          <div class="caption">Creative sample 2.</div>
-        </div>
-        <div class="video-card">
-          <video controls>
-            <source src="assets/creative_3.mp4" type="video/mp4">
-          </video>
-          <div class="caption">Creative sample 3.</div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Abstract</h2>
-      <div class="abstract-box">
-        Audio-driven human animation methods have shown strong performance in synchronized facial
-        motion generation. However, most prior works focus on single-person settings and struggle
-        with multi-stream audio and instruction following. We introduce a new task and a framework
-        that addresses multi-person conversational video generation with better person-audio binding
-        and controllability.
-      </div>
-    </section>
-
-    <section>
-      <h2>Method</h2>
-      <div class="method-figure">
-        <img src="assets/method.png" alt="Method Figure">
-        <p style="margin: 14px 0 0; color: #6b7280;">
-          Put your method overview figure here.
+        <p class="affiliation">
+          <span><sup>1</sup>Shenzhen Campus of Sun Yat-sen University</span>
+          <span><sup>2</sup>Meituan</span>
+          <span><sup>3</sup>Division of AMC and Department of ECE, HKUST</span>
         </p>
+        <p class="note">* Equal Contribution &nbsp;&nbsp; Corresponding Author</p>
+
+        <div class="button-row">
+          <a class="pill pill-dark" href="#">Technique Report</a>
+          <a class="pill" href="#">Code</a>
+          <a class="pill" href="#abstract">Abstract</a>
+          <a class="pill" href="#method">Method</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section intro-section">
+      <div class="container">
+        <h2>Introducing MultiTalk</h2>
+        <p class="lead">
+          We propose MultiTalk, a novel framework for audio-driven multi-person conversational video generation.
+          Given a multi-stream audio input, a reference image and a prompt, MultiTalk generates a video containing
+          interactions following the prompt, with consistent lip motions aligned with the audio.
+        </p>
+      </div>
+    </section>
+
+    <section class="section showcase-section">
+      <div class="container">
+        <h2>Generate cartoon videos</h2>
+        <div class="video-grid video-grid-3">
+          <article class="video-card">
+            <div class="media-frame placeholder-media">Replace with cartoon_01.mp4</div>
+            <p class="caption">Example cartoon dialogue result.</p>
+          </article>
+          <article class="video-card">
+            <div class="media-frame placeholder-media">Replace with cartoon_02.mp4</div>
+            <p class="caption">Second cartoon conversation result.</p>
+          </article>
+          <article class="video-card">
+            <div class="media-frame placeholder-media">Replace with cartoon_03.mp4</div>
+            <p class="caption">Stylized interaction under audio control.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section showcase-section alt-bg">
+      <div class="container">
+        <h2>Generate singing videos</h2>
+        <div class="video-grid video-grid-3">
+          <article class="video-card">
+            <div class="media-frame placeholder-media">Replace with singing_01.mp4</div>
+            <p class="caption">Singing performance example 1.</p>
+          </article>
+          <article class="video-card">
+            <div class="media-frame placeholder-media">Replace with singing_02.mp4</div>
+            <p class="caption">Singing performance example 2.</p>
+          </article>
+          <article class="video-card">
+            <div class="media-frame placeholder-media">Replace with singing_03.mp4</div>
+            <p class="caption">Multi-person singing interaction.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section showcase-section">
+      <div class="container">
+        <h2>Generate instruction-following videos</h2>
+        <div class="prompt-grid">
+          <article class="prompt-card">
+            <div class="media-frame placeholder-media tall">Replace with instruction_01.mp4</div>
+            <p>
+              In a cozy, warmly lit room, Nick Wilde, a fox with a mischievous grin, sits across from Judy Hopps,
+              a rabbit with a determined expression. Both are dressed casually; Nick in a green shirt and striped tie,
+              Judy in a blue outfit with headphones resting on the table. A Disney-branded mug sits between them on
+              the wooden table. The background features a rustic interior with a lamp, a window, and various household
+              items, creating a homely atmosphere.
+            </p>
+            <p>
+              A medium shot captures their interaction as Nick picks up the mug and gently touches Judy's head,
+              suggesting a moment of camaraderie and connection.
+            </p>
+          </article>
+
+          <article class="prompt-card">
+            <div class="media-frame placeholder-media tall">Replace with instruction_02.mp4</div>
+            <p>
+              A man and a woman are seated at an outdoor table, engaged in a conversation. The woman, dressed in a light
+              pink top with a white cardigan, holds a red cup of coffee, takes a sip, and then places it back on the saucer.
+              The man, wearing a striped shirt over a white t-shirt, is engrossed in his smartphone, looking down intently.
+              The table is adorned with two red cups of coffee and a plate with a croissant.
+            </p>
+            <p>
+              The background features a charming European street with pastel-colored buildings, greenery, and a partially
+              open green umbrella. The scene captures a casual, everyday moment with a warm, inviting atmosphere.
+            </p>
+          </article>
+
+          <article class="prompt-card">
+            <div class="media-frame placeholder-media tall">Replace with instruction_03.mp4</div>
+            <p>
+              Two individuals sit at a white table in a studio with blue-and-white acoustic wall panels. A man on the left
+              wears a dark casual top, holding a coffee mug. The woman on the right has a pair of studio headphones resting
+              near her. The man is speaking while the woman is listening and nodding occasionally. The woman picks up the
+              black headphones. A large wall-mounted TV displays technical interfaces.
+            </p>
+            <p>
+              The scene suggests a collaborative workspace with professional audio-visual equipment in a bright studio environment.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section showcase-section alt-bg">
+      <div class="container">
+        <h2>More creative videos</h2>
+        <div class="video-grid video-grid-4">
+          <article class="video-card"><div class="media-frame placeholder-media">creative_01.mp4</div></article>
+          <article class="video-card"><div class="media-frame placeholder-media">creative_02.mp4</div></article>
+          <article class="video-card"><div class="media-frame placeholder-media">creative_03.mp4</div></article>
+          <article class="video-card"><div class="media-frame placeholder-media">creative_04.mp4</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="abstract">
+      <div class="container narrow">
+        <h2>Abstract</h2>
+        <p>
+          Audio-driven human animation methods, such as talking head and talking body generation, have made remarkable
+          progress in generating synchronized facial movements and appealing visual quality videos. However, existing methods
+          primarily focus on single human animation and struggle with multi-stream audio inputs, facing incorrect binding
+          problems between audio and persons. Additionally, they exhibit limitations in instruction-following capabilities.
+        </p>
+        <p>
+          To solve this problem, in this paper, we propose a novel task: Multi-Person Conversational Video Generation,
+          and introduce a new framework, MultiTalk, to address the challenges during multi-person generation. Specifically,
+          for audio injection, we investigate several schemes and propose the Label Rotary Position Embedding (L-RoPE)
+          method to resolve the audio and person binding problem.
+        </p>
+        <p>
+          Furthermore, during training, we observe that partial parameter training and multi-task training are crucial for
+          preserving the instruction-following ability of the base model. MultiTalk achieves superior performance compared
+          to other methods on several datasets, including talking head, talking body, and multi-person datasets,
+          demonstrating the powerful generation capabilities of our approach.
+        </p>
+      </div>
+    </section>
+
+    <section class="section alt-bg" id="method">
+      <div class="container narrow">
+        <h2>Method</h2>
+        <p class="method-desc">
+          In this work, we propose MultiTalk, an audio-driven video generation framework. Our framework incorporates an
+          additional audio cross-attention layer to support audio conditions. To achieve multi-person conversational video
+          generation, we propose a Label Rotary Position Embedding (L-RoPE) for multi-stream audio injection.
+        </p>
+
+        <figure class="method-figure">
+          <img src="assets/method-placeholder.svg" alt="Method figure placeholder" />
+        </figure>
       </div>
     </section>
   </main>
 
-  <footer>
-    Some materials and videos may be derived from real videos. Generated content is for academic use only.
+  <footer class="footer">
+    <div class="container narrow footer-inner">
+      <p>部分素材和视频源于真实视频，生成内容仅限学术使用，不允许商业使用。</p>
+      <p>Some materials and video sources are derived from real videos. The generated content is for academic use only and commercial use is not permitted.</p>
+    </div>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
