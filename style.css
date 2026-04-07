@@ -1,1 +1,12 @@
+.author-block a {
+    color: #1e6fff !important;   /* 蓝色 */
+    text-decoration: none;
+}
 
+.author-block a:visited {
+    color: #1e6fff !important;   /* 防止变紫 */
+}
+
+.author-block a:hover {
+    color: #0046cc !important;   /* hover 深一点 */
+}
