@@ -1068,8 +1068,9 @@
                   <h1>Abstract</h1>
                   <div class="content has-text-justified">
                     <p>
-                        Audio-driven human animation methods, such as talking head and talking body generation, have made remarkable progress in generating synchronized facial movements and appealing visual quality videos. However, existing methods primarily focus on single human animation and struggle with multi-stream audio inputs, facing incorrect binding problems between audio and persons. Additionally, they exhibit limitations in instruction-following capabilities. To solve this problem, in this paper, we propose a novel task: Multi-Person Conversational Video Generation, and introduce a new framework, MultiTalk, to address the challenges during multi-person generation. Specifically, for audio injection, we investigate several schemes and propose the Label Rotary Position Embedding (L-RoPE) method to resolve the audio and person binding problem. Furthermore, during training, we observe that partial parameter training and multi-task training are crucial for preserving the instruction-following ability of the base model. MultiTalk achieves superior performance compared to other methods on several datasets, including talking head, talking body, and multi-person datasets, demonstrating the powerful generation capabilities of our approach.
-                    </p>
+                        Interactive multi-shot video generation under streaming conditions remains challenging. Although multi-shot video methods achieve high visual quality, they lack structured cross-shot memory control, leading to identity drift and scene inconsistency over long interactions. Existing approaches often rely on global script planning or model fine-tuning, which limits real-time flexibility and increases computational cost. We reformulate interactive multi-shot generation as a memory read-write scheduling problem and propose \textbf{EasySwitch}, a training-free and plug-and-play memory management framework built on a vision-language model. EasySwitch introduces structured shot-level memory representation, stability-aware active memory routing, and conservative visual grounding for reliable cache updates. 
+                        Without modifying the backbone generator, it preserves subject identity and scene coherence under user control dynamically switching prompts and scene.
+                        Experiments demonstrate consistent improvements in cross-shot identity consistency, scene continuity, and prompt alignment, with training-free, minimal latency overhead suitable for streaming generation.
                   </div>
                 </div>
               </div>
@@ -1084,9 +1085,9 @@
                   <h1 class="title is-3">Method</h1>
                   <div class="content has-text-justified">
                     <p>
-                      In this work, we propose MultiTalk, an audio-driven video generation framework. 
-                      Our framework incorporates an additional audio cross-attention layer to support audio conditions. 
-                      To achieve multi-person conversational video generation, we propose a Label Rotary Position Embedding (L-RoPE) for multi-stream audio injection.
+                      We propose EasySwatch, a method for interactive multi-shot long video generation.
+                      Given incremental user actions and prompts, our method maintains cross-shot subject identity 
+                      and scene consistency while enabling flexible shot switching.
                     </p>
                     <div class="column">
                       <img src="static/pipe.png" width="80%"/>
