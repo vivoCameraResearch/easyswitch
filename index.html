@@ -1085,12 +1085,17 @@
                   <h1 class="title is-3">Method</h1>
                   <div class="content has-text-justified">
                     <p>
-                      We propose EasySwatch, a method for interactive multi-shot long video generation.
-                      Given incremental user actions and prompts, our method maintains cross-shot subject identity 
-                      and scene consistency while enabling flexible shot switching.
+                      EasySwitch first constructs the initial structured memory from the initial prompt. 
+                      When a new prompt is provided, it starts a new generation cycle consisting of two steps: 
+                      (1) stability  memory routing, and (2) subject-to-video generation with active memory storage via visual grounding.
                     </p>
                     <div class="column">
-                      <img src="static/pipe.png" width="80%"/>
+                      <img src="assets/pipeline.jpg" width="80%"/>
+                    </div>
+                      
+                    <div class="column">
+                        <h2>Structured memory representation in EasySwitch.</h2>
+                      <img src="assets/memory5.jpg" width="80%"/>
                     </div>
                   </div>          
                 </div>
