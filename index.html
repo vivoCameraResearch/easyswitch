@@ -1068,7 +1068,10 @@
                   <h1>Abstract</h1>
                   <div class="content has-text-justified">
                     <p>
-                        Interactive multi-shot video generation under streaming conditions remains challenging. Although multi-shot video methods achieve high visual quality, they lack structured cross-shot memory control, leading to identity drift and scene inconsistency over long interactions. Existing approaches often rely on global script planning or model fine-tuning, which limits real-time flexibility and increases computational cost. We reformulate interactive multi-shot generation as a memory read-write scheduling problem and propose \textbf{EasySwitch}, a training-free and plug-and-play memory management framework built on a vision-language model. EasySwitch introduces structured shot-level memory representation, stability-aware active memory routing, and conservative visual grounding for reliable cache updates. 
+                        Interactive multi-shot video generation under streaming conditions remains challenging. Although multi-shot video methods achieve high visual quality, they lack structured cross-shot memory control, 
+                        leading to identity drift and scene inconsistency over long interactions. Existing approaches often rely on global script planning or model fine-tuning, which limits real-time flexibility and increases computational cost. We reformulate interactive multi-shot generation as a memory read-write scheduling problem and propose 
+                        EasySwitch
+                        , a training-free and plug-and-play memory management framework built on a vision-language model. EasySwitch introduces structured shot-level memory representation, stability-aware active memory routing, and conservative visual grounding for reliable cache updates. 
                         Without modifying the backbone generator, it preserves subject identity and scene coherence under user control dynamically switching prompts and scene.
                         Experiments demonstrate consistent improvements in cross-shot identity consistency, scene continuity, and prompt alignment, with training-free, minimal latency overhead suitable for streaming generation.
                   </div>
@@ -1092,7 +1095,13 @@
                     <div class="column">
                       <img src="assets/pipeline.jpg" width="80%"/>
                     </div>
-                      
+
+                    <p>
+                      Each shot is stored as a structured JSON entry containing about shot information, summary, scene attributes (e.g., shot type, location, and background elements),
+                      and subject level descriptions with persistent subject_id. Each subject also maintains a visual cache obtained through visual grounding from 
+                      keyframe for the shot, including the cropped reference image and bounding box metadata. This structured representation enables stability memory routing and 
+                      reliable identity preservation across shots.
+                    </p>
                     <div class="column">
                         <h2>Structured memory representation in EasySwitch.</h2>
                       <img src="assets/memory5.jpg" width="80%"/>
